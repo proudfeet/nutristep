@@ -18,7 +18,7 @@
     {% block stylesheets %}{% endblock %}
 
   </head>
-  <body class="layout-home">
+  <body class="layout-content-page page--{{currentPage}}">
     <!--[if lt IE 11]>
     <p class="browsehappy">
       You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
@@ -26,7 +26,25 @@
     <![endif]-->
     {% include "_modules/header/header.nunjucks" %}
 
-    {% block content %}{% endblock %}
+    {% macro hero(page='', title='') %}
+    <div class="hero wrapper hero-{{page}}">
+        <h1 class="hero__title">{{title}}</h1>
+    </div>
+    {% endmacro %}
+
+    {% block hero %}{% endblock %}
+    <div class="wrapper content-wrapper">
+        <ul class="chapter-nav">
+            <li class="chapter-nav__list-item"><a href="#" class="chapter-nav__item active">Chapter nav 1</a></li>
+            <li class="chapter-nav__list-item"><a href="#" class="chapter-nav__item">Chapter nav 2</a></li>
+            <li class="chapter-nav__list-item"><a href="#" class="chapter-nav__item">Chapter nav 3</a></li>
+            <li class="chapter-nav__list-item"><a href="#" class="chapter-nav__item">Chapter nav 4</a></li>
+            <li class="chapter-nav__list-item"><a href="#" class="chapter-nav__item">Chapter nav 5</a></li>
+        </ul>
+        <section class="page-content">
+            {% block content %}{% endblock %}
+        </section>
+    </div>
 
     {% include "_modules/footer/footer.nunjucks" %}
     <script src="{{baseUrl}}scripts/main.js"></script>

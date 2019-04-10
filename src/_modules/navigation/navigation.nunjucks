@@ -1,0 +1,18 @@
+{% macro content(spec) %}
+
+{% set spec = spec or {} %}
+{% set _class = spec.class or '' %}
+
+<div class="{{_class}}">
+  <p>This is an example paragraph for the navigation module</p>
+</div>
+{% endmacro %}
+<navigation class="navigation">
+  <ul class="navigation__list">
+  {% for item in site.data.navigation.pages %}
+    <li class="navigation__list-item">
+      <a class="navigation__item" href="{{item.url}}" title="{{item.page}}">{{item.page}}</a>
+    </li>
+  {% endfor %}
+  </ul>
+</navigation>

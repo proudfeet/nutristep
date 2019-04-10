@@ -3,7 +3,7 @@
 {% import "_modules/link/link.nunjucks" as link %}
 
 {% block content %}
-<div class="main-container">
+<div class="wrapper">
   <div class="yeogurt-info">
     <h1>Welcome to Yeogurt!</h1>
     <p>
@@ -17,5 +17,4 @@
     </p>
   </div>
 </div>
-<code class="version">v2.0.1</code>
 {% endblock %}

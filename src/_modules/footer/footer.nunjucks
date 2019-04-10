@@ -1,0 +1,33 @@
+{% macro content(spec) %}
+
+{% set spec = spec or {} %}
+{% set _class = spec.class or '' %}
+
+<div class="{{_class}}">
+  <p>This is an example paragraph for the footer module</p>
+</div>
+{% endmacro %}
+<footer class="footer">
+  <div class="wrapper">
+    <ul class="footer-links footer-nav">
+    {% for item in site.data.navigation.pages %}
+      <li class="footer-nav__list-item">
+        <a class="footer-nav__item" href="{{item.url}}" title="{{item.page}}">{{item.page}}</a>
+      </li>
+      {% endfor %}
+    </ul>
+    <ul class="footer-links legal-nav">
+      <li class="legal-nav__list-item">
+        <a href="/terms-of-use" class="legal-nav__item">Terms of Use</a>
+      </li>
+      <li class="legal-nav__list-item">
+        <a href="/privacy-policy" class="legal-nav__item">Privacy Policy</a>
+        </li>
+    </ul>
+    <div class="footer-disclaimer">
+      <p>Lorem ipsum dolor sit <a href="#">amet consectetur adipisicing elit</a>. In debitis quas amet optio vel doloremque sequi commodi porro, natus earum itaque quo iste ullam quasi, mollitia, deserunt aspernatur reiciendis minus!</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In debitis quas amet optio vel doloremque sequi commodi porro, natus earum itaque quo iste ullam quasi, mollitia, deserunt aspernatur reiciendis minus!</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In debitis quas amet optio vel doloremque sequi commodi porro, natus earum itaque quo iste ullam quasi, mollitia, deserunt aspernatur reiciendis minus!</p>
+    </div>
+  </div>
+</footer>
