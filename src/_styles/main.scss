@@ -34,10 +34,21 @@ a {
 }
 
 body {
-  background: white url(../images/dc-background.jpg);
+  background: 
+  linear-gradient(
+    to bottom, 
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,1) 10%, 
+    rgba(255,255,255,1) 100%
+  ),
+  url(../images/dc-background.jpg);
   background-size: 100% auto;
   background-repeat: no-repeat;
   font-family: $sitefont;
+
+  &.mobile-nav-active {
+    overflow: hidden;
+  }
 }
 
 img {
@@ -70,7 +81,7 @@ p {
   margin-top: 20px;
   margin-bottom: 100px;
 
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 890px) {
     margin-bottom: 0;
   }
 
@@ -157,7 +168,7 @@ p {
     padding: 20px 30px;
     transform: translateY(100%);
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 890px) {
       left: -20px;
       bottom: 30px;
       width: 300px;
@@ -188,7 +199,7 @@ p {
   padding-top: 0;
   padding-bottom: 50px;
 
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 890px) {
     padding-top: 50px;
   }
 }
@@ -215,7 +226,7 @@ p {
     color: var(--faded-red);
     margin-top: 0;
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 890px) {
       font-weight: $fwRegular;
       margin-bottom: 0;
       text-align: center;
@@ -226,7 +237,7 @@ p {
       width: 100px;
       vertical-align: middle;
 
-      @media only screen and (min-width: 768px) {
+      @media only screen and (min-width: 890px) {
         width: auto;
       }
     }
@@ -236,7 +247,7 @@ p {
       vertical-align: middle;
       width: calc(100% - 110px);
 
-      @media only screen and (min-width: 768px) {
+      @media only screen and (min-width: 890px) {
         display: inline;
       }
     }
@@ -247,12 +258,12 @@ p {
     & + .nav-callout {
       margin-top: 25px;
 
-      @media only screen and (min-width: 768px) {
+      @media only screen and (min-width: 890px) {
         margin-top: 0;
       }
     }
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 890px) {
       width: calc(33% - 20px);
     }
 
@@ -315,12 +326,12 @@ p {
     & + .questionnaire__card {
       margin-top: 20px;
 
-      @media only screen and (min-width: 768px) {
+      @media only screen and (min-width: 890px) {
         margin-top: 0;
       }
     }
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 890px) {
       width: calc(50% - 50px);
     }
 
@@ -343,7 +354,7 @@ p {
 .chapter-nav {
   display: none;
 
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 890px) {
     width: 25%;
     max-width: 240px;
     display: block;
@@ -354,7 +365,7 @@ p {
 
   .chapter-nav__item {
     opacity: 0.5;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: bold;
     letter-spacing: -0.3px;
     color: var(--cool-grey);
@@ -370,8 +381,9 @@ p {
 
 .page-content {
   flex-grow: 1;
+  position: relative;
 
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 890px) {
     max-width: 800px;
     width: 67%;
   }
@@ -381,6 +393,29 @@ p {
 
     & + .content-heading {
       padding-top: 50px;
+    }
+  }
+
+  #back-to-top {
+
+    @media only screen and (min-width: 890px) {
+      display: block;
+      position: absolute;
+      bottom: 100px;
+      right: -150px;
+      background: url(../images/arrow.png);
+      background-repeat: no-repeat;
+      background-position-x: 50%;;
+      padding-top: 58px;
+      opacity: 0.5;
+      font-size: 14px;
+      font-weight: $fwBold;
+      color: var(--cool-grey);
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+      }
     }
   }
 }
@@ -401,4 +436,48 @@ p {
   line-height: 1.5;
   letter-spacing: -0.3px;
   color: var(--gunmetal);
+}
+
+.table {
+
+  .table__heading,
+  .table__row {
+    display: flex;
+  }
+
+  .table__heading {
+    border-bottom: 2px solid rgba($grey, 0.5);
+  }
+
+  .table__row:not(:last-of-type) {
+    border-bottom: 1px solid rgba($grey, 0.25);
+  }
+
+  .heading__cell,
+  .table__cell {
+    padding: 5px 15px 5px 0;
+    width: 50%;
+
+    @media only screen and (min-width: 890px) {
+      padding: 15px 15px 15px 0;
+    }
+  }
+
+  .heading__cell {
+    font-size: 20px;
+    font-weight: $fwBold;
+    line-height: 1.5;
+    letter-spacing: -0.3px;
+    color: var(--gunmetal);
+  }
+
+  .table__cell {
+    font-size: 20px;
+    font-weight: $fwThin;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: -0.3px;
+    color: var(--gunmetal);
+  }
 }

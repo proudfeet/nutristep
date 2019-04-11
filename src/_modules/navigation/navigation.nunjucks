@@ -8,10 +8,15 @@
 </div>
 {% endmacro %}
 <navigation class="navigation">
+  <a href="#" class="mobile-nav-trigger">Close</a>
   <ul class="navigation__list">
   {% for item in site.data.navigation.pages %}
     <li class="navigation__list-item">
+      {% if loop.first %}
+      <a class="navigation__item active" href="{{item.url}}" title="{{item.page}}">{{item.page}}</a>
+      {% else %}
       <a class="navigation__item" href="{{item.url}}" title="{{item.page}}">{{item.page}}</a>
+      {% endif %}
     </li>
   {% endfor %}
   </ul>

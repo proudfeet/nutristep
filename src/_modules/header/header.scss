@@ -3,35 +3,75 @@
     padding-top: 30px;
     
     .header__home {
-        max-width: 300px;
+        max-width: 200px;
+
+        @media only screen and (min-width: 890px) {
+            max-width: 300px;
+        }
+    }
+
+    .mobile-nav-trigger__container {
+        flex-grow: 1;
+        text-align: right;
+
+        @media only screen and (min-width: 890px) {
+            display: none;
+        }
+
+        .mobile-nav-trigger {
+            padding: 15px 0;
+            display: inline-block;
+            font-size: 18px;
+            font-weight: $fwBold;
+            color: var(--cool-grey);
+
+            &:hover,
+            &:focus {
+                text-decoration: none;
+            }
+        }
     }
 
     .navigation {
         flex-grow: 1;
         text-align: right;
         padding-top: 30px;
-    }
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: -150%;
+        background: white;
+        width: 100%;
+        z-index: 100;
+        transition: all 0.3s ease-in-out;
+        padding: 0 20px;
 
-        .navigation__list {
-            margin: 0;
+        body.mobile-nav-active & {
+            left: 0;
+        }
+
+        @media only screen and (min-width: 890px) {
+            position: static;
+            background: none;
+            width: auto;
             padding: 0;
         }
 
-        .navigation__list-item {
+        .mobile-nav-trigger {
+            padding: 35px 0 20px 25px;
             display: inline-block;
-        }
+            font-size: 18px;
+            font-weight: 700;
 
-            .navigation__item {
-                display: inline-block;
-                padding: 15px 10px;
-                color: $steel;
-                font-size: 14px;
-                font-weight: bold;;
-                transition: all 0.2s;
-
-                &:hover,
-                &:focus {
-                    color: $red;
-                }
+            &:hover,
+            &:focus {
+                text-decoration: none;
             }
+
+            @media only screen and (min-width: 890px) {
+                display: none;
+            }
+        }
+    }
 }

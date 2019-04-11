@@ -44,6 +44,7 @@
         </ul>
         <section class="page-content">
             {% block content %}{% endblock %}
+            <a id="back-to-top" href="#">Back to Top</a>
         </section>
     </div>
 
