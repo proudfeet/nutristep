@@ -370,11 +370,13 @@ p {
     letter-spacing: -0.3px;
     color: var(--cool-grey);
     transition: all 0.2s;
+    cursor: pointer;  
 
     &:hover,
     &:focus,
     &.active {
       color: $red;
+      text-decoration: none;
     }
   }
 }
