@@ -19,27 +19,47 @@ let chapterNav = {
       </li>
     `);
     document.getElementById('chapter-nav').innerHTML = chapterMarkup.join('');
+    this.bindChapterNav();
+  },
+  bindChapterNav: function() {
+    const chapterNavItems = document.querySelectorAll('.chapter-nav__item');
+    chapterNavItems.forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({
+          top: item.dataset.scroll,
+          behavior: 'smooth'
+        });
+      });
+    });
+  },
+  init: function(selector) {
+    this.headingTitles = [];
+    this.getHeadingTitles(selector);
   }
+};
+
+function debounce(func, wait, immediate) {
+  var timeout;
+  return function() {
+    var context = this, args = arguments;
+    var later = function() {
+    	timeout = null;
+    	if (!immediate) func.apply(context, args);
+    };
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
 };
 
 document.addEventListener('DOMContentLoaded', () => {
   const chapterHeadings = document.querySelectorAll('.content-heading');
 
-  window.setTimeout(chapterNav.getHeadingTitles(chapterHeadings), 2500);
+  window.setTimeout(chapterNav.init(chapterHeadings), 5000);
   window.addEventListener('resize', () => {
-    chapterNav.headingTitles = [];
-    chapterNav.getHeadingTitles(chapterHeadings);
-  });
-
-  const chapterNavItems = document.querySelectorAll('.chapter-nav__item');
-  chapterNavItems.forEach(item => {
-    item.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.scrollTo({
-        top: item.dataset.scroll,
-        behavior: 'smooth'
-      });
-    });
+    debounce(chapterNav.init(chapterHeadings), 250);
   });
   
   const navTriggers = document.querySelectorAll('.mobile-nav-trigger');
