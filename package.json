@@ -2,6 +2,7 @@
   "name": "Sample",
   "version": "0.0.1",
   "dependencies": {
+    "gh-pages": "^2.0.1",
     "jquery": "~3.1.1",
     "normalize.css": "~5.0.0"
   },
@@ -58,7 +59,8 @@
     "lint": "gulp eslint",
     "serve:prod": "NODE_ENV=development gulp serve",
     "serve": "NODE_ENV=production gulp serve --production",
-    "build": "NODE_ENV=production gulp --production"
+    "build": "NODE_ENV=production gulp --production",
+    "deploy": "gh-pages -d dist"
   },
   "engines": {
     "node": ">=0.12.0"
@@ -71,7 +73,7 @@
     "baseUrl": "./",
     "directories": {
       "source": "src",
-      "destination": "docs",
+      "destination": "dist",
       "temporary": "tmp",
       "//": "Directories relative to `source` directory",
       "modules": "_modules",

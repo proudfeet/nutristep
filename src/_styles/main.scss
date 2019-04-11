@@ -2,6 +2,7 @@
 @import 'node_modules/normalize.css/normalize';
 
 @import 'base/colours';
+@import 'base/fonts';
 @import 'components';
 
 // Box sizing partial styles:
@@ -36,17 +37,21 @@ body {
   background: white url(../images/dc-background.jpg);
   background-size: 100% auto;
   background-repeat: no-repeat;
+  font-family: $sitefont;
+}
+
+img {
+  max-width: 100%;
 }
 
 p,
 ul,
 ol {
-  font-weight: 300;
+  font-weight: $fwThin;
   line-height: 1.5;
   letter-spacing: -0.3px;
-  font-size: 14px;
+  font-size: 18px;
   color: $bodyColor;
-  font-weight: 300;
 }
 
 p {
@@ -63,82 +68,276 @@ p {
   max-height: 500px;
   position: relative;
   margin-top: 20px;
+  margin-bottom: 100px;
+
+  @media only screen and (min-width: 768px) {
+    margin-bottom: 0;
+  }
 
   &.wrapper {
     padding-right: 0;
     padding-left: 0;
   }
 
+  &.hero-home {
+    background: url(../images/hero-images/hero-home.jpg);
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position-x: 50%;    
+  }
+
   &.hero-about {
     background: url(../images/hero-images/hero-about.jpg);
-    background-size: contain;
+    background-size: auto;
     background-repeat: no-repeat;
+    background-position-x: 50%;
   }
 
   &.hero-parents {
     background: url(../images/hero-images/hero-parents.jpg);
-    background-size: contain;
+    background-size: auto;
     background-repeat: no-repeat;
+    background-position-x: 50%;
   }
 
   &.hero-community {
     background: url(../images/hero-images/hero-community.jpg);
-    background-size: contain;
+    background-size: auto;
     background-repeat: no-repeat;
+    background-position-x: 50%;
   }
 
   &.hero-primary-care {
     background: url(../images/hero-images/hero-primary-care.jpg);
-    background-size: contain;
+    background-size: auto;
     background-repeat: no-repeat;
+    background-position-x: 50%;
   }
 
   &.hero-partners {
     background: url(../images/hero-images/hero-partners.jpg);
-    background-size: contain;
+    background-size: auto;
     background-repeat: no-repeat;
+    background-position-x: 50%;
   }
 
   &.hero-research {
     background: url(../images/hero-images/hero-research.jpg);
-    background-size: contain;
+    background-size: auto;
     background-repeat: no-repeat;
+    background-position-x: 50%;
   }
 
   &.hero-acquire {
     background: url(../images/hero-images/hero-acquire.jpg);
-    background-size: contain;
+    background-size: auto;
     background-repeat: no-repeat;
+    background-position-x: 50%;
   }
 
   &.hero-contact {
     background: url(../images/hero-images/hero-contact.jpg);
-    background-size: contain;
+    background-size: auto;
     background-repeat: no-repeat;
+    background-position-x: 50%;
   }
 
   .hero__title {
     position: absolute;
-    left: -20px;
-    bottom: 30px;
     background: var(--faded-orange);
-    width: 300px;
-    padding: 18px 50px 24px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
     color: white;
-    font-size: 36px;
-    font-weight: normal;
+    font-size: 32px;
+    font-weight: $fwRegular;
     line-height: 1.12;
     letter-spacing: -1px;
     margin: 0;
+    padding: 20px 30px;
+    transform: translateY(100%);
+
+    @media only screen and (min-width: 768px) {
+      left: -20px;
+      bottom: 30px;
+      width: 300px;
+      padding: 18px 50px 24px;
+      font-size: 36px;
+      transform: none;
+    }
+
+    body.layout-home & {
+      background: var(--cool-grey);
+    }
   }
 }
 
+.hero-description {
+  max-width: 1010px;
+  font-size: 20px;
+  font-weight: $fwRegular;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.4;
+  letter-spacing: -0.3px;
+  color: var(--gunmetal);
+  padding: 20px 0 35px;
+}
+
 .content-wrapper {
+  padding-top: 0;
+  padding-bottom: 50px;
 
   @media only screen and (min-width: 768px) {
     padding-top: 50px;
-    padding-bottom: 50px;
   }
+}
+
+.home-nav-callouts {
+  background: $white;
+
+  .wrapper {
+    flex-wrap: wrap;
+
+    @media only screen and (min-width: 786px) {
+      justify-content: space-evenly;
+    }
+  }
+
+  .nav-callouts__title {
+    width: 100%;
+    font-size: 26px;
+    font-weight: $fwBold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.33;
+    letter-spacing: -0.8px;
+    color: var(--faded-red);
+    margin-top: 0;
+
+    @media only screen and (min-width: 768px) {
+      font-weight: $fwRegular;
+      margin-bottom: 0;
+      text-align: center;
+      font-size: 36px;
+    }
+
+    img {
+      width: 100px;
+      vertical-align: middle;
+
+      @media only screen and (min-width: 768px) {
+        width: auto;
+      }
+    }
+
+    .title-text {
+      display: inline-block;
+      vertical-align: middle;
+      width: calc(100% - 110px);
+
+      @media only screen and (min-width: 768px) {
+        display: inline;
+      }
+    }
+  }
+
+  .nav-callout {
+    
+    & + .nav-callout {
+      margin-top: 25px;
+
+      @media only screen and (min-width: 768px) {
+        margin-top: 0;
+      }
+    }
+
+    @media only screen and (min-width: 768px) {
+      width: calc(33% - 20px);
+    }
+
+    .nav-callout__image {
+      max-width: 100%;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .nav-callout__title {
+      font-size: 28px;
+      line-height: 1.29;
+      letter-spacing: -0.6px;
+      color: var(--gunmetal);
+      margin-top: 21px;
+      margin-bottom: 7px;
+    }
+
+    .nav-callout__link {
+      font-weight: $fwBold;
+      white-space: nowrap;
+    }
+  }
+}
+
+.questionnaires {
+  background: white url(../images/dc-background.jpg);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  text-align: center;
+  padding: 50px 0;
+
+  .wrapper {
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  .questionnaires__title {
+    font-size: 32px;
+    font-weight: $fwRegular;
+    line-height: 1.5;
+    letter-spacing: -1px;
+    text-align: center;
+    color: var(--faded-red);
+    width: 100%;
+    margin: 0;
+  }
+
+  .questionnaires__description {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
+  .questionnaire__card {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    background: white;
+    padding: 25px;
+    
+    & + .questionnaire__card {
+      margin-top: 20px;
+
+      @media only screen and (min-width: 768px) {
+        margin-top: 0;
+      }
+    }
+
+    @media only screen and (min-width: 768px) {
+      width: calc(50% - 50px);
+    }
+
+    &.nutri-estep .card__link {
+      color: #459782;
+    }
+  }
+
+    .card__description {
+      margin-top: 15px;
+      margin-bottom: 10px;
+    }
+
+    .card__link {
+      text-decoration: underline;
+      font-weight: $fwBold;
+    }
 }
 
 .chapter-nav {
@@ -159,7 +358,10 @@ p {
     font-weight: bold;
     letter-spacing: -0.3px;
     color: var(--cool-grey);
+    transition: all 0.2s;
 
+    &:hover,
+    &:focus,
     &.active {
       color: $red;
     }
@@ -185,8 +387,18 @@ p {
 
 .content-heading {
   font-size: 21px;
-  font-weight: bold;
+  font-weight: $fwBold;
   line-height: 1.21;
   letter-spacing: -0.3px;
   color: var(--faded-red)
+}
+
+.content-subheading {
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.3px;
+  color: var(--gunmetal);
 }
