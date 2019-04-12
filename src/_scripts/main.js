@@ -7,11 +7,11 @@ let chapterNav = {
   headingTitles: [],
   getHeadingTitles: function(headings) {
     headings.forEach((heading, index) => {
+      heading.id = `heading-${index}`;
       this.headingTitles.push({
         title: heading.innerText,
-        scrollPos: heading.getBoundingClientRect().y
+        scrollPos: heading.id
       });
-      heading.id = index;
     });
     let chapterMarkup = this.headingTitles.map(heading => `
       <li class="chapter-nav__list-item">
@@ -19,47 +19,33 @@ let chapterNav = {
       </li>
     `);
     document.getElementById('chapter-nav').innerHTML = chapterMarkup.join('');
-    this.bindChapterNav();
-  },
-  bindChapterNav: function() {
-    const chapterNavItems = document.querySelectorAll('.chapter-nav__item');
-    chapterNavItems.forEach(item => {
-      item.addEventListener('click', (e) => {
-        e.preventDefault();
-        window.scrollTo({
-          top: item.dataset.scroll,
-          behavior: 'smooth'
-        });
-      });
-    });
-  },
-  init: function(selector) {
-    this.headingTitles = [];
-    this.getHeadingTitles(selector);
   }
 };
 
-function debounce(func, wait, immediate) {
-  var timeout;
-  return function() {
-    var context = this, args = arguments;
-    var later = function() {
-    	timeout = null;
-    	if (!immediate) func.apply(context, args);
-    };
-    var callNow = immediate && !timeout;
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-    if (callNow) func.apply(context, args);
-  };
-};
+function getCoords(elem) { // crossbrowser version
+  let box = elem.getBoundingClientRect();
+  let body = document.body;
+  let docEl = document.documentElement;
+  let scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
+  let clientTop = docEl.clientTop || body.clientTop || 0;
+  let top  = box.top +  scrollTop - clientTop;
+  return Math.round(top);
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   const chapterHeadings = document.querySelectorAll('.content-heading');
+  window.location.pathname != '/' ? chapterNav.getHeadingTitles(chapterHeadings) : null;
 
-  window.setTimeout(chapterNav.init(chapterHeadings), 5000);
-  window.addEventListener('resize', () => {
-    debounce(chapterNav.init(chapterHeadings), 250);
+  const chapterNavItems = document.querySelectorAll('.chapter-nav__item');
+  chapterNavItems.forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      let scrollPos = getCoords(document.getElementById(item.dataset.scroll));
+      window.scrollTo({
+        top: scrollPos,
+        behavior: 'smooth'
+      });
+    });
   });
   
   const navTriggers = document.querySelectorAll('.mobile-nav-trigger');
@@ -70,13 +56,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const backToTop = document.getElementById('back-to-top');
-  backToTop.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'smooth'
+  if(window.location.pathname != '/') {
+    const backToTop = document.getElementById('back-to-top');
+    backToTop.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
     });
-  });
+  }
 });

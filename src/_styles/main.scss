@@ -381,30 +381,18 @@ p {
   }
 }
 
-.page-content {
+.content-section {
   flex-grow: 1;
   position: relative;
-
-  @media only screen and (min-width: 890px) {
-    max-width: 800px;
-    width: 67%;
-  }
-
-  p,
-  ul {
-
-    & + .content-heading {
-      padding-top: 50px;
-    }
-  }
-
+  
   #back-to-top {
+    display: none;
 
     @media only screen and (min-width: 890px) {
       display: block;
       position: absolute;
-      bottom: 100px;
-      right: -150px;
+      bottom: 400px;
+      right: 0;
       background: url(../images/arrow.png);
       background-repeat: no-repeat;
       background-position-x: 50%;;
@@ -418,6 +406,22 @@ p {
       &:focus {
         text-decoration: none;
       }
+    }
+  }
+}
+
+.page-content {
+
+  @media only screen and (min-width: 890px) {
+    max-width: 800px;
+    width: calc(100% - 100px);
+  }
+
+  p,
+  ul {
+
+    & + .content-heading {
+      padding-top: 50px;
     }
   }
 }

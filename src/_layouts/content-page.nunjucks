@@ -36,14 +36,11 @@
     {% block hero %}{% endblock %}
     <div class="wrapper content-wrapper">
         <ul id="chapter-nav" class="chapter-nav">
-            {# <li class="chapter-nav__list-item"><a href="#" class="chapter-nav__item active">Chapter nav 1</a></li>
-            <li class="chapter-nav__list-item"><a href="#" class="chapter-nav__item">Chapter nav 2</a></li>
-            <li class="chapter-nav__list-item"><a href="#" class="chapter-nav__item">Chapter nav 3</a></li>
-            <li class="chapter-nav__list-item"><a href="#" class="chapter-nav__item">Chapter nav 4</a></li>
-            <li class="chapter-nav__list-item"><a href="#" class="chapter-nav__item">Chapter nav 5</a></li> #}
         </ul>
-        <section class="page-content">
-            {% block content %}{% endblock %}
+        <section class="content-section">
+            <div class="page-content">
+              {% block content %}{% endblock %}
+            </div>
             <a id="back-to-top" href="#">Back to Top</a>
         </section>
     </div>
