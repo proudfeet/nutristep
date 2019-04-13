@@ -61,7 +61,7 @@ ol {
   font-weight: $fwThin;
   line-height: 1.5;
   letter-spacing: -0.3px;
-  font-size: 18px;
+  font-size: 20px;
   color: $bodyColor;
 }
 
@@ -73,6 +73,39 @@ p {
   }
 }
 
+.content-section {
+
+  ul {
+    list-style-type: none;
+  
+    li {
+      position: relative;
+      
+      &::before {
+        background: $orange;
+        content: "";
+        position: absolute;
+        top: 13px;
+        left: -30px;
+        height: 5px;
+        width: 5px;
+        border-radius: 50%;
+      }
+    }
+  
+    ul {
+      
+      li {
+  
+        &::before {
+          background: $grey;
+        }
+      }
+    }
+  }
+}
+
+
 .hero {
   height: 33vw;
   min-height: 300px;
@@ -81,7 +114,7 @@ p {
   margin-top: 20px;
   margin-bottom: 100px;
 
-  @media only screen and (min-width: 890px) {
+  @media only screen and (min-width: 980px) {
     margin-bottom: 0;
   }
 
@@ -92,63 +125,63 @@ p {
 
   &.hero-home {
     background: url(../images/hero-images/hero-home.jpg);
-    background-size: auto;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position-x: 50%;    
   }
 
   &.hero-about {
     background: url(../images/hero-images/hero-about.jpg);
-    background-size: auto;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position-x: 50%;
   }
 
   &.hero-parents {
     background: url(../images/hero-images/hero-parents.jpg);
-    background-size: auto;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position-x: 50%;
   }
 
   &.hero-community {
     background: url(../images/hero-images/hero-community.jpg);
-    background-size: auto;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position-x: 50%;
   }
 
   &.hero-primary-care {
     background: url(../images/hero-images/hero-primary-care.jpg);
-    background-size: auto;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position-x: 50%;
   }
 
   &.hero-partners {
     background: url(../images/hero-images/hero-partners.jpg);
-    background-size: auto;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position-x: 50%;
   }
 
   &.hero-research {
     background: url(../images/hero-images/hero-research.jpg);
-    background-size: auto;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position-x: 50%;
   }
 
   &.hero-acquire {
     background: url(../images/hero-images/hero-acquire.jpg);
-    background-size: auto;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position-x: 50%;
   }
 
   &.hero-contact {
     background: url(../images/hero-images/hero-contact.jpg);
-    background-size: auto;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position-x: 50%;
   }
@@ -165,16 +198,27 @@ p {
     line-height: 1.12;
     letter-spacing: -1px;
     margin: 0;
-    padding: 20px 30px;
+    padding: 20px;
     transform: translateY(100%);
 
-    @media only screen and (min-width: 890px) {
+    @media only screen and (min-width: 980px) {
       left: -20px;
       bottom: 30px;
-      width: 300px;
+      width: 380px;
       padding: 18px 50px 24px;
-      font-size: 36px;
+      font-size: 52px;
       transform: none;
+      letter-spacing: -1px;
+    }
+
+    sup {
+      font-size: 14px;
+      vertical-align: 6px;
+
+      @media only screen and (min-width: 980px) {
+        font-size: 20px;
+        vertical-align: 10px;
+      }
     }
 
     body.layout-home & {
@@ -199,8 +243,9 @@ p {
   padding-top: 0;
   padding-bottom: 50px;
 
-  @media only screen and (min-width: 890px) {
+  @media only screen and (min-width: 980px) {
     padding-top: 50px;
+    padding-bottom: 115px;
   }
 }
 
@@ -226,7 +271,7 @@ p {
     color: var(--faded-red);
     margin-top: 0;
 
-    @media only screen and (min-width: 890px) {
+    @media only screen and (min-width: 980px) {
       font-weight: $fwRegular;
       margin-bottom: 0;
       text-align: center;
@@ -237,7 +282,7 @@ p {
       width: 100px;
       vertical-align: middle;
 
-      @media only screen and (min-width: 890px) {
+      @media only screen and (min-width: 980px) {
         width: auto;
       }
     }
@@ -247,7 +292,7 @@ p {
       vertical-align: middle;
       width: calc(100% - 110px);
 
-      @media only screen and (min-width: 890px) {
+      @media only screen and (min-width: 980px) {
         display: inline;
       }
     }
@@ -258,12 +303,12 @@ p {
     & + .nav-callout {
       margin-top: 25px;
 
-      @media only screen and (min-width: 890px) {
+      @media only screen and (min-width: 980px) {
         margin-top: 0;
       }
     }
 
-    @media only screen and (min-width: 890px) {
+    @media only screen and (min-width: 980px) {
       width: calc(33% - 20px);
     }
 
@@ -326,12 +371,12 @@ p {
     & + .questionnaire__card {
       margin-top: 20px;
 
-      @media only screen and (min-width: 890px) {
+      @media only screen and (min-width: 980px) {
         margin-top: 0;
       }
     }
 
-    @media only screen and (min-width: 890px) {
+    @media only screen and (min-width: 980px) {
       width: calc(50% - 50px);
     }
 
@@ -354,11 +399,11 @@ p {
 .chapter-nav {
   display: none;
 
-  @media only screen and (min-width: 890px) {
+  @media only screen and (min-width: 980px) {
     width: 25%;
     max-width: 240px;
     display: block;
-    padding: 15px;
+    padding: 3px 15px;
     line-height: 1.7;
     list-style: none;
   }
@@ -388,14 +433,14 @@ p {
   #back-to-top {
     display: none;
 
-    @media only screen and (min-width: 890px) {
+    @media only screen and (min-width: 980px) {
       display: block;
       position: absolute;
-      bottom: 400px;
+      bottom: 0;
       right: 0;
       background: url(../images/arrow.png);
       background-repeat: no-repeat;
-      background-position-x: 50%;;
+      background-position-x: 50%;
       padding-top: 58px;
       opacity: 0.5;
       font-size: 14px;
@@ -412,7 +457,7 @@ p {
 
 .page-content {
 
-  @media only screen and (min-width: 890px) {
+  @media only screen and (min-width: 980px) {
     max-width: 800px;
     width: calc(100% - 100px);
   }
@@ -427,11 +472,11 @@ p {
 }
 
 .content-heading {
-  font-size: 21px;
+  font-size: 28px;
+  line-height: 34px;
   font-weight: $fwBold;
-  line-height: 1.21;
   letter-spacing: -0.3px;
-  color: var(--faded-red)
+  color: var(--faded-red);
 }
 
 .content-subheading {
@@ -464,7 +509,7 @@ p {
     padding: 5px 15px 5px 0;
     width: 50%;
 
-    @media only screen and (min-width: 890px) {
+    @media only screen and (min-width: 980px) {
       padding: 15px 15px 15px 0;
     }
   }
@@ -478,12 +523,17 @@ p {
   }
 
   .table__cell {
-    font-size: 20px;
+    font-size: 16px;
+    line-height: 22px;
     font-weight: $fwThin;
     font-style: normal;
     font-stretch: normal;
-    line-height: 1.5;
     letter-spacing: -0.3px;
     color: var(--gunmetal);
+
+    @media only screen and (min-width: 890px) {
+      font-size: 20px;
+      line-height: 1.5;
+    }
   }
 }

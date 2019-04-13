@@ -2,7 +2,7 @@
 {% block config %}
   {# Setup site's base URL to match the "baseUrl" key within `package.json` #}
   {# Otherwise default to relative pathing #}
-  {% set baseUrl = config.baseUrl or './' %}
+  {% set baseUrl = config.baseUrl or '../' %}
 {% endblock %}
 
 <!DOCTYPE html>

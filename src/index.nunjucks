@@ -2,7 +2,7 @@
 
 {% macro navCallout(headline='', copy='', image='') %}
 <div class="nav-callout">
-  <img class="nav-callout__image" src="../images/{{image}}" alt="{{headline}}">
+  <img class="nav-callout__image" src="./images/{{image}}" alt="{{headline}}">
   <h3 class="nav-callout__title">{{headline}}</h3>
   <p class="nav-callout__description">{{copy}}. <a class="nav-callout__link" href="#">Learn more</a></p>
 </div>
@@ -10,7 +10,7 @@
 
 {% macro questionnaire(classes='', copy='', image='') %}
 <div class="questionnaire__card {{classes}}">
-  <img class="card__image" src="../images/{{image}}">
+  <img class="card__image" src="./images/{{image}}">
   <p class="card__description">{{copy}}.</p>
   <p class="card__description"><a class="card__link" href="#">Get Started</a></p>
 </div>
@@ -29,7 +29,7 @@
   <section class="home-nav-callouts content-wrapper">
     <div class="wrapper">
       <h2 class="nav-callouts__title">
-        <img src="../images/bear-icon.png" alt="">
+        <img src="./images/bear-icon.png" alt="">
         <span class="title-text">What can this bear do for you?</span>
       </h2>
       {{navCallout(headline='For Parents', copy='Complete online nutrition questionnaires and get immediate feedback', image='for-parents.jpg')}}

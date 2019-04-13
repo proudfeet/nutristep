@@ -4,14 +4,14 @@
     padding-top: 100px;
     list-style-type: none;
 
-    @media only screen and (min-width: 890px) {
+    @media only screen and (min-width: 980px) {
         padding: 0;   
     }
 }
 
 .navigation__list-item {
 
-    @media only screen and (min-width: 890px) {
+    @media only screen and (min-width: 980px) {
         display: inline-block;
     }
 }
@@ -24,15 +24,15 @@
         transition: all 0.2s;
         position: relative;
 
-        @media only screen and (min-width: 890px) {
+        @media only screen and (min-width: 980px) {
             font-weight: $fwBold;
             font-size: 20px;
-            padding: 10px;
+            padding: 10px 20px;;
         }
 
         &::after {
 
-            @media only screen and (min-width: 890px) {
+            @media only screen and (min-width: 980px) {
                 content: '';
                 display: block;
                 position: absolute;
@@ -55,7 +55,7 @@
 
             &::after {
 
-                @media only screen and (min-width: 890px) {
+                @media only screen and (min-width: 980px) {
                     opacity: 0.1;
                     background-color: var(--faded-red);
                 }

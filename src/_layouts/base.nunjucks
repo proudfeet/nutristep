@@ -2,7 +2,7 @@
 {% block config %}
   {# Setup site's base URL to match the "baseUrl" key within `package.json` #}
   {# Otherwise default to relative pathing #}
-  {% set baseUrl = config.baseUrl or './' %}
+  {% set baseUrl = config.baseUrl %}
 {% endblock %}
 
 <!DOCTYPE html>
@@ -25,7 +25,7 @@
       You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
     </p>
     <![endif]-->
-    {% include "_modules/header/header.nunjucks" %}
+    {% include "_modules/header-home/header-home.nunjucks" %}
 
     {% macro hero(page='', title='') %}
     <div class="hero wrapper hero-{{page}}">
@@ -40,7 +40,7 @@
 
     {% block content %}{% endblock %}
 
-    {% include "_modules/footer/footer.nunjucks" %}
+    {% include "_modules/footer-home/footer-home.nunjucks" %}
     <script src="{{baseUrl}}scripts/main.js"></script>
     {% block scripts %}{% endblock %}
   </body>

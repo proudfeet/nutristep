@@ -13,9 +13,9 @@
   {% for item in site.data.navigation.pages %}
     <li class="navigation__list-item">
       {% if loop.first %}
-      <a class="navigation__item active" href="{{item.url}}" title="{{item.page}}">{{item.page}}</a>
+      <a class="navigation__item active" href="{{baseUrl}}{{item.url}}/index.html" title="{{item.page}}">{{item.page}}</a>
       {% else %}
-      <a class="navigation__item" href="{{item.url}}" title="{{item.page}}">{{item.page}}</a>
+      <a class="navigation__item" href="{{baseUrl}}{{item.url}}/index.html" title="{{item.page}}">{{item.page}}</a>
       {% endif %}
     </li>
   {% endfor %}

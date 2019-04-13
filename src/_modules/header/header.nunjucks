@@ -9,8 +9,8 @@
 {% endmacro %}
 <header class="header">
   <div class="wrapper">
-    <a class="header__home" href="/">
-      <img class="header__logo" src="../images/nutri-step-logo.png" alt="Nutristep">
+    <a class="header__home" href="{{baseUrl}}">
+      <img class="header__logo" src="{{baseUrl}}/images/nutri-step-logo@3x.png" alt="Nutristep">
     </a>
     <div class="mobile-nav-trigger__container">
       <a class="mobile-nav-trigger" href="#">Menu</a>
