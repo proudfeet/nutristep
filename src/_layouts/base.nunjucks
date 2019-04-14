@@ -25,7 +25,7 @@
       You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
     </p>
     <![endif]-->
-    {% include "_modules/header-home/header-home.nunjucks" %}
+    {% include "_modules/header/header.nunjucks" %}
 
     {% macro hero(page='', title='') %}
     <div class="hero wrapper hero-{{page}}">
@@ -40,7 +40,7 @@
 
     {% block content %}{% endblock %}
 
-    {% include "_modules/footer-home/footer-home.nunjucks" %}
+    {% include "_modules/footer/footer.nunjucks" %}
     <script src="{{baseUrl}}scripts/main.js"></script>
     {% block scripts %}{% endblock %}
   </body>

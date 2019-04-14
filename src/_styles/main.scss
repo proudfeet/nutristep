@@ -34,14 +34,18 @@ a {
 }
 
 body {
-  background: 
-  linear-gradient(
-    to bottom, 
-    rgba(255,255,255,0) 0%,
-    rgba(255,255,255,1) 10%, 
-    rgba(255,255,255,1) 100%
-  ),
-  url(../images/dc-background.jpg);
+  background: url(../images/dc-background.jpg);
+
+  &:not(.layout-home) {
+    background: 
+    linear-gradient(
+      to bottom, 
+      rgba(255,255,255,0) 0%,
+      rgba(255,255,255,1) 10%, 
+      rgba(255,255,255,1) 100%
+    ),
+    url(../images/dc-background.jpg);
+  }
   background-size: 100% auto;
   background-repeat: no-repeat;
   font-family: $sitefont;
@@ -194,7 +198,7 @@ p {
     width: 100%;
     color: white;
     font-size: 32px;
-    font-weight: $fwRegular;
+    font-weight: 500;
     line-height: 1.12;
     letter-spacing: -1px;
     margin: 0;
@@ -237,6 +241,10 @@ p {
   letter-spacing: -0.3px;
   color: var(--gunmetal);
   padding: 20px 0 35px;
+
+  a {
+    font-weight: 500;
+  }
 }
 
 .content-wrapper {
@@ -291,6 +299,7 @@ p {
       display: inline-block;
       vertical-align: middle;
       width: calc(100% - 110px);
+      font-weight: 500;
 
       @media only screen and (min-width: 980px) {
         display: inline;
@@ -327,8 +336,17 @@ p {
       margin-bottom: 7px;
     }
 
+    .nav-callout__description {
+      font-size: 18px;
+      line-height: 26px;
+      color: $steel;
+      font-weight: 400;
+    }
+
     .nav-callout__link {
-      font-weight: $fwBold;
+      font-size: 18px;
+      line-height: 26px;
+      font-weight: 500;
       white-space: nowrap;
     }
   }
@@ -337,7 +355,7 @@ p {
 .questionnaires {
   background: white url(../images/dc-background.jpg);
   background-size: 100% auto;
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   text-align: center;
   padding: 50px 0;
 
@@ -348,13 +366,13 @@ p {
 
   .questionnaires__title {
     font-size: 32px;
-    font-weight: $fwRegular;
-    line-height: 1.5;
+    font-weight: 500;
+    line-height: 34px;
     letter-spacing: -1px;
     text-align: center;
     color: var(--faded-red);
     width: 100%;
-    margin: 0;
+    margin: 0 0 12px 0;
   }
 
   .questionnaires__description {
@@ -380,6 +398,10 @@ p {
       width: calc(50% - 50px);
     }
 
+    &:not(.nutri-estep) .card__link {
+      color: $orange;
+    }
+
     &.nutri-estep .card__link {
       color: #459782;
     }
@@ -388,11 +410,20 @@ p {
     .card__description {
       margin-top: 15px;
       margin-bottom: 10px;
+      font-size: 18px;
+      line-height: 26px;
+      font-weight: 400;
     }
 
     .card__link {
-      text-decoration: underline;
-      font-weight: $fwBold;
+      font-weight: 500;
+      transition: all 0.2s;
+
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+        font-weight: 500;
+      }
     }
 }
 

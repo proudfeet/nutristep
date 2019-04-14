@@ -23,11 +23,12 @@
         font-size: 34px;
         transition: all 0.2s;
         position: relative;
+        line-height: 1.7;
 
         @media only screen and (min-width: 980px) {
             font-weight: $fwBold;
             font-size: 20px;
-            padding: 10px 20px;;
+            padding: 10px 20px;
         }
 
         &::after {
